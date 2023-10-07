@@ -1,0 +1,67 @@
+.todo {
+  max-width: 600px;
+  padding: 20px 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: flex-start;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  &__title {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--title-color);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .task {
+      height: 50px;
+      padding: 0 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--bg-task-color);
+
+
+      &__btn {
+        padding: 10px 5px;
+        height: 100%;
+        border: 1px solid black;
+        border-radius: 5px;
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+  .action {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    &__text {
+      padding: 10px;
+      border-radius: 5px;
+      border: 2px solid var(--bg-task-color);
+    }
+
+    &__btn {
+      padding: 0 5px;
+      background-color: var(--bg-add-button);
+      color: var(--color-add-button);
+      border-radius: 5px;
+      font-size: 20px;
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+}
