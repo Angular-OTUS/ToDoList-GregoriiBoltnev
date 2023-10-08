@@ -1,7 +1,10 @@
   <ul class="todo__list">
     <li class="todo__item task">
       <p class="task__text">{{task.text}}</p>
-      <button class="task__btn button button--delete" (click)="deleteTask(task.id)" >Delete</button>
+      <app-button
+      [color]="'red'"
+      (click)="deleteTask(task.id)"
+    >Delete</app-button>
     </li>
   </ul>
 

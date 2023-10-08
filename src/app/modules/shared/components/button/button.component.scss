@@ -1,0 +1,16 @@
+button {
+
+  &.red {
+    background-color: red;
+    color: white;
+  }
+  &.green {
+    background-color: green;
+    color: white;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}

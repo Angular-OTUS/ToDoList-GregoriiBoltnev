@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&family=Young+Serif&display=swap');
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
 /* Reset and base styles  */
 
 :root {
@@ -112,34 +115,4 @@ label {
 
 legend {
   display: block;
-}
-
-/* Button */
-.button {
-  border: 0;
-  outline: 0;
-  border-radius: 5px;
-  color: white;
-
-  &--add {
-    background-color: green;
-
-    &:active {
-      transform: scale(0.95);
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: scale(1);
-    }
-  }
-
-  &--delete {
-    background-color: red;
-
-    &:active {
-      transform: scale(0.95);
-    }
-  }
 }

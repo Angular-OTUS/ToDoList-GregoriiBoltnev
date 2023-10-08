@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {ITasks} from "../../shared/interfaces/itasks";
+import {Component, OnInit} from '@angular/core';
+import {ITasks} from "../../settings/interfaces/itasks";
 
 @Component({
   selector: 'app-to-do-list',
@@ -7,8 +7,21 @@ import {ITasks} from "../../shared/interfaces/itasks";
   styleUrls: ['./to-do-list.component.scss']
 })
 
-export class ToDoListComponent {
-  public tasks:ITasks[] = [{id:1, text:'Купить молоко'}, {id:2, text:'Помыть полы'}];
+export class ToDoListComponent implements OnInit{
+  public tasks:ITasks[];
+  public isLoading: boolean;
+
+  constructor() {
+    this.tasks = [{id:1, text:'Купить молоко'}, {id:2, text:'Помыть полы'}];
+    this.isLoading = true;
+  }
+
+  ngOnInit(): void {
+    setTimeout(()=>{
+      this.isLoading = false;
+      console.log(this.isLoading);
+    }, 500);
+  }
 
   updatTasks(task: ITasks) {
     this.tasks.unshift(task);

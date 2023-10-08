@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {ITasks} from "../../shared/interfaces/itasks";
+import {ITasks} from "../../settings/interfaces/itasks";
 
 @Component({
   selector: 'app-to-do-list-item',
