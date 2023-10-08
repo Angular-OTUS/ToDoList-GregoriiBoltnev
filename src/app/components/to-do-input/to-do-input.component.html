@@ -1,0 +1,8 @@
+<div class="todo__actions action">
+  <input  class="action__text"
+          type="text"
+          placeholder="Add your new todo"
+          [(ngModel)]="text"
+  >
+  <button class="action__btn button button--add" [disabled]="!text" (click)="addTask()">Add task</button>
+</div>

@@ -1,0 +1,17 @@
+.todo__list {
+
+  .task {
+    height: 50px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-task-color);
+
+
+    &__btn {
+      padding: 10px 5px;
+      height: 100%;
+    }
+  }
+}
