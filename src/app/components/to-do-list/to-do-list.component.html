@@ -6,5 +6,7 @@
                           (onDeleteTask)="deleteTask($event)"
     ></app-to-do-list-item>
   </div>
-  <app-to-do-input (onAdd)="updatTasks($event)"></app-to-do-input>
+  <app-to-do-input (onAdd)="updatTasks($event)"
+                   [tasks]="tasks"
+  ></app-to-do-input>
 </div>
