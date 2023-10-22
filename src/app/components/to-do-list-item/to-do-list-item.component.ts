@@ -18,16 +18,6 @@ export class ToDoListItemComponent {
     this.toggleSelectd = false;
   }
 
-  changeBgColor(node: HTMLElement): void {
-    console.log('1111')
-    // if (node.classList.contains('color-blue')) {
-    //   this.renderer.removeClass(node, 'color-blue');
-    //   this.renderer.addClass(node, 'color-red');
-    // } else {
-    //   this.renderer.removeClass(node, 'color-red');
-    //   this.renderer.addClass(node, 'color-blue');
-    // }
-  }
 
   deleteTask(id: number): void {
     if (this.task.id === id) this.onDeleteTask.emit(this.task);
@@ -36,12 +26,6 @@ export class ToDoListItemComponent {
   emitTask(task: ITasks): void {
     task.selected = true;
     this.onEmitId.emit(task);
-    // console.log(node.target.classList.contains('task'))
-    // if (node.target.className.includes('selected')) {
-    //   this.renderer.removeClass(node, 'selected');
-    // } else {
-    //   this.renderer.addClass(node, 'selected');
-    // }
   }
 
 }
