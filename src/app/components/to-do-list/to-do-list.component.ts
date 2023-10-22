@@ -7,19 +7,34 @@ import {ITasks} from "../../settings/interfaces/itasks";
   styleUrls: ['./to-do-list.component.scss']
 })
 
-export class ToDoListComponent implements OnInit{
-  public tasks:ITasks[];
+export class ToDoListComponent implements OnInit {
+  public tasks: ITasks[];
   public isLoading: boolean;
+  public toggleClass: boolean;
+  public selectedItemId!: number;
+  public description: string | undefined;
 
   constructor() {
-    this.tasks = [{id:1, text:'Купить молоко'}, {id:2, text:'Помыть полы'}];
+    this.tasks = [
+      {
+        id: 1,
+        text: 'Купить молоко',
+        description: 'Только сегодняшнее',
+      },
+      {
+        id: 2,
+        text: 'Помыть полы',
+        description: 'Во всем доме'
+      }
+    ];
     this.isLoading = true;
+    this.toggleClass = true;
+    this.description = 'Кликни по любому таску';
   }
 
   ngOnInit(): void {
-    setTimeout(()=>{
+    setTimeout(() => {
       this.isLoading = false;
-      console.log(this.isLoading);
     }, 500);
   }
 
@@ -29,5 +44,17 @@ export class ToDoListComponent implements OnInit{
 
   deleteTask(task: ITasks) {
     this.tasks = this.tasks.filter(item => item != task);
+    this.toggleClass = true;
+  }
+
+  onSelectId(task: ITasks) {
+    this.description = task.description;
+    this.tasks.map(item => {
+      if(item.id == task.id) {
+        item.selected = true;
+      } else {
+        item.selected = false;
+      }
+    })
   }
 }

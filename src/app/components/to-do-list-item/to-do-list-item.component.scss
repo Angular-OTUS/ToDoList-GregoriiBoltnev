@@ -8,6 +8,9 @@
     align-items: center;
     background-color: var(--bg-task-color);
 
+    &.selected {
+      background: yellow;
+    }
 
     &__btn {
       padding: 10px 5px;
