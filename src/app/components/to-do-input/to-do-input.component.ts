@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ITasks} from "../../settings/interfaces/itasks";
+import {ToastService} from "../../settings/services/toast.service";
 
 
 @Component({
@@ -13,7 +14,7 @@ export class ToDoInputComponent {
   public text:string;
   public description:string;
 
-  constructor() {
+  constructor(public toast:ToastService) {
     this.text = '';
     this.description = '';
   }
@@ -36,6 +37,7 @@ export class ToDoInputComponent {
 
       this.text = this.description = '';
       this.onAdd.emit(newTask);
+      this.toast.onActionText('Таск добавлен');
     }
   }
 }

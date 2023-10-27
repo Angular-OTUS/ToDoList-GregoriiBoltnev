@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ITasks} from "../../settings/interfaces/itasks";
+import {MainService} from "../../settings/services/main.service";
 
 @Component({
   selector: 'app-to-do-list',
@@ -14,19 +15,8 @@ export class ToDoListComponent implements OnInit {
   public selectedItemId!: number;
   public description: string | undefined;
 
-  constructor() {
-    this.tasks = [
-      {
-        id: 1,
-        text: 'Купить молоко',
-        description: 'Только сегодняшнее',
-      },
-      {
-        id: 2,
-        text: 'Помыть полы',
-        description: 'Во всем доме'
-      }
-    ];
+  constructor(public tasksServ:MainService) {
+    this.tasks = this.tasksServ.tasks;
     this.isLoading = true;
     this.toggleClass = true;
     this.description = 'Кликни по любому таску';

@@ -9,6 +9,8 @@ import {FormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {SharedModule} from "./modules/shared/shared.module";
+import { ModalComponent } from './components/modal/modal.component';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import {SharedModule} from "./modules/shared/shared.module";
     ToDoListComponent,
     ToDoListItemComponent,
     ToDoInputComponent,
+    ModalComponent,
+    ToastComponent,
   ],
   imports: [
     BrowserModule,

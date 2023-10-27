@@ -1,1 +1,5 @@
 <app-to-do-list></app-to-do-list>
+<app-modal *ngIf="modalServ.isVisibleModal$ | async">
+</app-modal>
+<!--<app-toast *ngIf="toastServ.isVisibleToast$ | async"></app-toast>-->
+<app-toast *ngIf="true"></app-toast>

@@ -1,6 +1,9 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ITasks} from "../../settings/interfaces/itasks";
 import {Renderer2} from '@angular/core';
+import {MainService} from "../../settings/services/main.service";
+import {ModalService} from "../../settings/services/modal.service";
+import {ToastService} from "../../settings/services/toast.service";
 
 @Component({
   selector: 'app-to-do-list-item',
@@ -12,15 +15,23 @@ export class ToDoListItemComponent {
   @Output() onDeleteTask: EventEmitter<ITasks> = new EventEmitter<ITasks>();
   @Output() onEmitId: EventEmitter<ITasks> = new EventEmitter<ITasks>();
   public toggleSelectd: boolean;
+  public newText: string;
 
 
-  constructor(private renderer: Renderer2) {
+  constructor(
+    private renderer: Renderer2,
+    private taskServ: MainService,
+    private modalserv:ModalService,
+    public toast:ToastService
+  ) {
     this.toggleSelectd = false;
+    this.newText = '';
   }
 
 
   deleteTask(id: number): void {
     if (this.task.id === id) this.onDeleteTask.emit(this.task);
+    this.toast.onActionText('Таск удален');
   }
 
   emitTask(task: ITasks): void {
@@ -28,4 +39,13 @@ export class ToDoListItemComponent {
     this.onEmitId.emit(task);
   }
 
+  onEdit(task: ITasks) {
+    this.modalserv.open();
+    this.modalserv.setTitle(task);
+    // this.taskServ.onEditTasks(task);
+  }
+
+  onChangeTitle():void {
+    // this.newText =
+  }
 }
