@@ -19,10 +19,8 @@ export class ToDoListItemComponent {
 
 
   constructor(
-    private renderer: Renderer2,
-    private taskServ: MainService,
     private modalserv:ModalService,
-    public toast:ToastService
+    public toast:ToastService,
   ) {
     this.toggleSelectd = false;
     this.newText = '';
@@ -42,10 +40,5 @@ export class ToDoListItemComponent {
   onEdit(task: ITasks) {
     this.modalserv.open();
     this.modalserv.setTitle(task);
-    // this.taskServ.onEditTasks(task);
-  }
-
-  onChangeTitle():void {
-    // this.newText =
   }
 }

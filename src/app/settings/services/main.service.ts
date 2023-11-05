@@ -27,4 +27,12 @@ export class MainService {
       if(item.id === task.id &&  item.description != task.description) item.description = task.description;
     })
   }
+  onDelete(id: number):ITasks[] {
+    this.tasks = this.tasks.filter(item => item.id != id);
+    return this.tasks;
+  }
+
+  addTask(task: ITasks):number {
+    return this.tasks.unshift(task);
+  }
 }

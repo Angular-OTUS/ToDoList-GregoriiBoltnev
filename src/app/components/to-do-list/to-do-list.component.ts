@@ -12,34 +12,34 @@ export class ToDoListComponent implements OnInit {
   public tasks: ITasks[];
   public isLoading: boolean;
   public toggleClass: boolean;
-  public selectedItemId!: number;
   public description: string | undefined;
 
-  constructor(public tasksServ:MainService) {
-    this.tasks = this.tasksServ.tasks;
+  constructor(public mainServ:MainService) {
+    this.tasks = this.mainServ.tasks;
     this.isLoading = true;
     this.toggleClass = true;
     this.description = 'Кликни по любому таску';
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
+    setTimeout(():void => {
       this.isLoading = false;
     }, 500);
   }
 
-  updatTasks(task: ITasks) {
-    this.tasks.unshift(task);
+  updatTasks(task: ITasks):void {
+    this.mainServ.addTask(task);
   }
 
-  deleteTask(task: ITasks) {
-    this.tasks = this.tasks.filter(item => item != task);
+  deleteTask(task: ITasks): void {
+    this.mainServ.onDelete(task.id);
     this.toggleClass = true;
+    this.tasks = this.mainServ.tasks;
   }
 
-  onSelectId(task: ITasks) {
+  onSelectId(task: ITasks):void {
     this.description = task.description;
-    this.tasks.map(item => {
+    this.tasks.map((item:ITasks):void => {
       if(item.id == task.id) {
         item.selected = true;
       } else {
