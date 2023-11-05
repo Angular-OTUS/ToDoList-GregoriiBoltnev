@@ -6,11 +6,16 @@
         [color]="'yellow'"
         (click)="toggleClass = !toggleClass; description='Кликни по любому таску'"
         appTooltip="Описание таска"
-      >{{toggleClass ?'&#62;': '&#60;'}}</app-button>
+      >{{toggleClass ? '&#62;' : '&#60;'}}</app-button>
     </div>
     <mat-spinner *ngIf="isLoading; else content"></mat-spinner>
     <ng-template #content>
       <div class="wrapper">
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button (click)="onfilter('All')" value="All">All</mat-radio-button>
+          <mat-radio-button (click)="onfilter('Completed')" value="Completed">Completed</mat-radio-button>
+          <mat-radio-button (click)="onfilter('InProggress')" value="InProggress">In Proggress</mat-radio-button>
+        </mat-radio-group>
         <app-to-do-list-item *ngFor="let item of tasks"
                              [task]="item"
                              (onDeleteTask)="deleteTask($event)"

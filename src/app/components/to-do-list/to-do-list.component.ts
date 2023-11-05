@@ -1,12 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, InjectionToken, OnInit} from '@angular/core';
 import {ITasks} from "../../settings/interfaces/itasks";
 import {MainService} from "../../settings/services/main.service";
+
+export const MY_SERVICE_TOKEN = new InjectionToken<string>('Manually constructed MyService'); 
 
 @Component({
   selector: 'app-to-do-list',
   templateUrl: './to-do-list.component.html',
   styleUrls: ['./to-do-list.component.scss']
-})
+}) 
 
 export class ToDoListComponent implements OnInit {
   public tasks: ITasks[];
@@ -14,37 +16,77 @@ export class ToDoListComponent implements OnInit {
   public toggleClass: boolean;
   public description: string | undefined;
 
-  constructor(public mainServ:MainService) {
-    this.tasks = this.mainServ.tasks;
+  constructor(public mainServ: MainService) {
+    this.tasks = [];
     this.isLoading = true;
     this.toggleClass = true;
     this.description = 'Кликни по любому таску';
   }
 
   ngOnInit(): void {
-    setTimeout(():void => {
+    this.getTasks();
+    setTimeout((): void => {
       this.isLoading = false;
     }, 500);
   }
 
-  updatTasks(task: ITasks):void {
-    this.mainServ.addTask(task);
+  getTasks() {
+    this.mainServ.getAll().subscribe({
+      next: (res) => {
+        this.tasks = res;
+      },
+      error:(er) => {
+        alert("что-то не так с сервером! Возмжно вы не запустили сервер командой json-server --watch db.json");
+      }
+    })
+  }
+
+  updatTasks(task: ITasks): void {
+    this.mainServ.addTask(task)
+    .subscribe({
+      next:(res: any) => this.tasks.push(res),
+      error: error => console.log(error)
+  });
   }
 
   deleteTask(task: ITasks): void {
-    this.mainServ.onDelete(task.id);
+    this.mainServ.onDelete(task.id)
+    .subscribe({
+      next:(res: any) => this.tasks = this.tasks.filter(item => item.id != task.id),
+      error: error => console.log(error)
+    });
     this.toggleClass = true;
-    this.tasks = this.mainServ.tasks;
   }
 
-  onSelectId(task: ITasks):void {
+  onSelectId(task: ITasks): void {
     this.description = task.description;
-    this.tasks.map((item:ITasks):void => {
-      if(item.id == task.id) {
+    this.tasks.map((item: ITasks): void => {
+      if (item.id == task.id) {
         item.selected = true;
       } else {
         item.selected = false;
       }
     })
+  }
+
+  onfilter(str: string) {
+    if (str == 'Completed') {
+      this.mainServ.getAll().subscribe({
+        next: (res) => {
+          this.tasks = res;
+          this.tasks = this.tasks.filter(item => item.status?.completed); 
+        } 
+      })
+    } else if (str == 'InProggress') {
+      this.mainServ.getAll().subscribe({
+        next: (res) => {
+          this.tasks = res;
+          this.tasks = this.tasks.filter(item => item.status?.inProgress); 
+        } 
+      })
+    } else {
+      this.getTasks();
+    }
+    
   }
 }

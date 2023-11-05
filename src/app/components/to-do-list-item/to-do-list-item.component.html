@@ -3,7 +3,9 @@
         (click)="emitTask(task)"
         (dblclick)="onEdit(task)"
         [ngClass]="{
-          selected: task.selected
+          selected: task.selected,
+          completed: task.status?.completed,
+          inProggress: this.task.status?.inProgress,
         }"
     >
       <p class="task__text">{{task.text}}</p>

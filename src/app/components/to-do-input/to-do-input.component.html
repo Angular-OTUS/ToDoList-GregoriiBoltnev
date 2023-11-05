@@ -1,17 +1,17 @@
-<div class="todo__actions action">
+<form class="todo__actions action" [formGroup]="formTodo">
   <input  class="action__text-title"
           type="text"
           placeholder="Add your new todo"
-          [(ngModel)]="text"
+          formControlName="title"
   >
   <textarea class="action__text-description"
             placeholder="Add description"
-            [(ngModel)]="description"
+            formControlName="description"
   ></textarea>
   <app-button
     [color]="'green'"
-    [disableButton]="!text"
+    [disableButton]="formTodo.invalid"
     (click)="addTask()"
     appTooltip="Добавить таск"
   >Add Task</app-button>
-</div>
+</form>

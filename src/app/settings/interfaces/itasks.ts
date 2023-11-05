@@ -3,4 +3,8 @@ export interface ITasks {
   text: string,
   description?:string,
   selected?:boolean,
+  status?: {
+    inProgress:boolean,
+    completed:boolean
+  }
 }

@@ -11,6 +11,12 @@
     &.selected {
       background: yellow;
     }
+    &.completed {
+      background: green;
+    }
+    &.inProggress {
+      background: blue;
+    }
 
     &__btn {
       padding: 10px 5px;
