@@ -14,6 +14,11 @@ import {MatRadioModule} from '@angular/material/radio';
 import {HttpClientModule} from "@angular/common/http";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {RouterOutlet} from "@angular/router";
+import {AppRoutingModule} from './app-routing.module';
+import { ToDoItemViewComponent } from './components/to-do-item-view/to-do-item-view.component';
+import {MatSelectModule} from "@angular/material/select";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -23,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ToDoInputComponent,
     ModalComponent,
     ToastComponent,
+    ToDoItemViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatRadioModule,
     HttpClientModule,
     MatFormFieldModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    RouterOutlet,
+    AppRoutingModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

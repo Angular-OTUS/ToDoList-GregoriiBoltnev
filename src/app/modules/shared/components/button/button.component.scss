@@ -5,10 +5,17 @@ button {
     background-color: red;
     color: white;
   }
+
   &.green {
     background-color: green;
     color: white;
   }
+
+  &.blue {
+    background-color: #53539c;
+    color: white;
+  }
+
   &.yellow {
     background-color: yellow;
     color: white;

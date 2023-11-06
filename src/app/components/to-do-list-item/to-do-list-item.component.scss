@@ -17,10 +17,9 @@
     &.inProggress {
       background: blue;
     }
-
-    &__btn {
-      padding: 10px 5px;
-      height: 100%;
+    &__actions {
+      display: flex;
+      gap: 10px;
     }
   }
 }
