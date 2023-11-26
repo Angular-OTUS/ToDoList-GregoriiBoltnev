@@ -2,7 +2,7 @@ import {Component, InjectionToken, OnInit} from '@angular/core';
 import {ITasks} from "../../settings/interfaces/itasks";
 import {MainService} from "../../settings/services/main.service";
 
-export const MY_SERVICE_TOKEN = new InjectionToken<string>('Manually constructed MyService'); 
+type filter = 'Completed' | 'InProggress' | 'All';
 
 @Component({
   selector: 'app-to-do-list',
@@ -69,23 +69,26 @@ export class ToDoListComponent implements OnInit {
     })
   }
 
-  onfilter(str: string) {
-    if (str == 'Completed') {
-      this.mainServ.getAll().subscribe({
-        next: (res) => {
-          this.tasks = res;
-          this.tasks = this.tasks.filter(item => item.status?.completed); 
-        } 
-      })
-    } else if (str == 'InProggress') {
-      this.mainServ.getAll().subscribe({
-        next: (res) => {
-          this.tasks = res;
-          this.tasks = this.tasks.filter(item => item.status?.inProgress); 
-        } 
-      })
-    } else {
-      this.getTasks();
+  onfilter(str: filter) {
+    switch (str) {
+      case 'Completed' :
+        this.mainServ.getAll().subscribe({
+          next: (res) => {
+            this.tasks = res;
+            this.tasks = this.tasks.filter(item => item.status?.completed)
+          } 
+        });
+      break;
+      case 'InProggress': 
+        this.mainServ.getAll().subscribe({
+          next: (res) => {
+            this.tasks = res;
+            this.tasks = this.tasks.filter(item => item.status?.inProgress); 
+          } 
+        });
+        break;
+        default:
+          this.getTasks(); 
     }
     
   }
