@@ -1,6 +1,10 @@
 <div class="modal-wrapper">
-  <div class="modal">
-    <input type="text" [(ngModel)]="title">
+  <form class="modal" [formGroup]="formModal">
+    <input type="text" formControlName="title">
+    <mat-radio-group aria-label="Select an option" formControlName="status">
+      <mat-radio-button value="Completed" >Completed</mat-radio-button>
+      <mat-radio-button value="InProggress">In Proggress</mat-radio-button>
+    </mat-radio-group>
     <div class="actions">
       <app-button
         [color]="'green'"
@@ -13,5 +17,5 @@
       >cancel
       </app-button>
     </div>
-  </div>
+  </form>
 </div>
