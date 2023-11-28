@@ -1,0 +1,33 @@
+<div class="wrapper-todo">
+  <div class="todo">
+    <div class="todo__title-wrapper">
+      <h1 class="todo__title">Todo List</h1>
+      <app-button
+        [color]="'yellow'"
+        (click)="toggleClass = !toggleClass; description='Кликни по любому таску'"
+        appTooltip="Описание таска"
+      >{{toggleClass ?'&#62;': '&#60;'}}</app-button>
+    </div>
+    <mat-spinner *ngIf="isLoading; else content"></mat-spinner>
+    <ng-template #content>
+      <div class="wrapper">
+        <app-to-do-list-item *ngFor="let item of tasks"
+                             [task]="item"
+                             (onDeleteTask)="deleteTask($event)"
+                             (onEmitId)="onSelectId($event)"
+        ></app-to-do-list-item>
+      </div>
+    </ng-template>
+    <app-to-do-input (onAdd)="updatTasks($event)"
+                     [tasks]="tasks"
+    ></app-to-do-input>
+  </div>
+  <div [ngClass]=
+         "{
+              description: true,
+              active: toggleClass ? true : false,
+          }"
+  >
+    {{description}}
+  </div>
+</div>
