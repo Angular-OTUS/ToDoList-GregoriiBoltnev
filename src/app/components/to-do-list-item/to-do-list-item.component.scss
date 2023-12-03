@@ -11,10 +11,15 @@
     &.selected {
       background: yellow;
     }
-
-    &__btn {
-      padding: 10px 5px;
-      height: 100%;
+    &.completed {
+      background: green;
+    }
+    &.in-proggress {
+      background: blue;
+    }
+    &__actions {
+      display: flex;
+      gap: 10px;
     }
   }
 }
