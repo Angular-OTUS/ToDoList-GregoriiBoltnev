@@ -1,21 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ToDoListComponent} from "./components/to-do-list/to-do-list.component";
-import {ToDoItemViewComponent} from "./components/to-do-item-view/to-do-item-view.component";
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/tasks',
+    redirectTo: 'tasks-board',
     pathMatch:'full'
   },
   {
-    path:'tasks',
-    component: ToDoListComponent,
-  },
-  {
-    path:'tasks/:id',
-    component:ToDoItemViewComponent
+    path: 'tasks-board',
+    loadChildren: () => import('./modules/tasks-bard/tasks-bard.module').then(m => m.TasksBardModule),
+    data: { title: 'tasks-board'}
   },
   {
     path:'**',

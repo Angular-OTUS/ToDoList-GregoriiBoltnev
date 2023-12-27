@@ -1,0 +1,33 @@
+<div class="tasks-board">
+  <div class="tasks-board__menu">
+    <h1 class="tasks-board__menu-title">TasksBoard</h1>
+    <ul class="tasks-board__menu-list">
+      <li class="tasks-board__menu-item"
+          [routerLink]="'backlog'"
+          [ngClass]="{
+              active: flag == 'Backlog' ? true : false
+          }"
+          (click)="onChangeFlag('Backlog')"
+      >
+        Backlog
+      </li>
+      <li class="tasks-board__menu-item"
+          [routerLink]="'board'"
+          [ngClass]="{
+              active: flag == 'Board' ? true : false
+          }"
+          (click)="onChangeFlag('Board')"
+      >
+        Board
+      </li>
+    </ul>
+  </div>
+  <div class="tasks-board__wrapper">
+    <div class="tasks-board__header">
+      <h2 class="tasks-board__menu-subtitle">{{flag}}</h2>
+    </div>
+    <div class="tasks-board__body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
