@@ -1,0 +1,44 @@
+{
+  "tasks": [
+    {
+      "id": 390,
+      "title": "ewfwefwef",
+      "description": "wefwefew",
+      "status": {
+        "inProgress": false,
+        "completed": true
+      },
+      "selected": false
+    },
+    {
+      "id": 2684,
+      "title": "wefwef",
+      "description": "fwefwefwefwefwefwe",
+      "status": {
+        "inProgress": true,
+        "completed": false
+      },
+      "selected": false
+    },
+    {
+      "id": 1464,
+      "title": "1",
+      "description": "222222",
+      "status": {
+        "inProgress": false,
+        "completed": false
+      },
+      "selected": false
+    },
+    {
+      "id": 1699,
+      "title": "wfwefwef",
+      "description": "efweffwe",
+      "status": {
+        "inProgress": true,
+        "completed": false
+      },
+      "selected": false
+    }
+  ]
+}

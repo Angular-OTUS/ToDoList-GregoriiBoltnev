@@ -1,0 +1,35 @@
+<div class="tasks-board">
+  <div class="tasks-board__menu">
+    <h1 class="tasks-board__menu-title">TasksBoard</h1>
+    <ul class="tasks-board__menu-list">
+      <li class="tasks-board__menu-item"
+          [routerLink]="'backlog'"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}"
+          (click)="onChangeFlag('Backlog')"
+      >
+        Backlog
+      </li>
+      <li class="tasks-board__menu-item"
+          [routerLink]="'board'"
+          routerLinkActive="active"
+          (click)="onChangeFlag('Board')"
+      >
+        Board
+      </li>
+    </ul>
+  </div>
+  <div class="tasks-board__wrapper">
+    <div class="tasks-board__header">
+ <h2 class="tasks-board__menu-subtitle">{{flag}}</h2>
+    </div>
+    <div class="tasks-board__body">
+      <router-outlet></router-outlet>
+
+      <button mat-raised-button
+              color="warn"
+              (click)="openDialog()"
+      >+</button>
+    </div>
+  </div>
+</div>
