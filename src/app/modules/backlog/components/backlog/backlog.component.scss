@@ -8,8 +8,8 @@
     flex-direction: column;
     gap: 20px;
     justify-content: start;
-    overflow: auto;
-    height: 100%;
+    overflow-y: auto;
+    height: 70vh;
 
     .backlog-item {
       background: var(--panel-bg);

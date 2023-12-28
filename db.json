@@ -15,35 +15,15 @@
       "title": "wefwef",
       "description": "fwefwefwefwefwefwe",
       "status": {
-        "inProgress": false,
+        "inProgress": true,
         "completed": false
       },
       "selected": false
     },
     {
       "id": 1464,
-      "title": "22222",
+      "title": "1",
       "description": "222222",
-      "status": {
-        "inProgress": false,
-        "completed": false
-      },
-      "selected": false
-    },
-    {
-      "id": 1265,
-      "title": "2222",
-      "description": "22222222222222222222",
-      "status": {
-        "inProgress": false,
-        "completed": false
-      },
-      "selected": false
-    },
-    {
-      "id": 1225,
-      "title": "4534534543534545",
-      "description": "45345345345",
       "status": {
         "inProgress": false,
         "completed": false
@@ -56,56 +36,6 @@
       "description": "efweffwe",
       "status": {
         "inProgress": true,
-        "completed": false
-      },
-      "selected": false
-    },
-    {
-      "id": 628,
-      "title": "sfsdf",
-      "description": "safdsdffd",
-      "status": {
-        "inProgress": true,
-        "completed": false
-      },
-      "selected": false
-    },
-    {
-      "id": 2560,
-      "title": "fefwefw",
-      "description": "wefwefwef",
-      "status": {
-        "inProgress": false,
-        "completed": false
-      },
-      "selected": false
-    },
-    {
-      "id": 1403,
-      "title": "wefwef",
-      "description": "wefwefwef",
-      "status": {
-        "inProgress": false,
-        "completed": false
-      },
-      "selected": false
-    },
-    {
-      "id": 185,
-      "title": "ergerg",
-      "description": "ergergerg",
-      "status": {
-        "inProgress": false,
-        "completed": false
-      },
-      "selected": false
-    },
-    {
-      "id": 689,
-      "title": "uiliololiol",
-      "description": "44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444",
-      "status": {
-        "inProgress": false,
         "completed": false
       },
       "selected": false

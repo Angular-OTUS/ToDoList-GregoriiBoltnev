@@ -28,9 +28,11 @@ export class ModalComponent implements OnInit{
       title: ['', Validators.required],
       description: ['', Validators.required],
       status: ['', Validators.required],
+      id: [''],
     });
     if(this.editData){
       this.actionBtn = 'Edit';
+      this.formTodo.controls['id'].setValue(this.editData.id);
       this.formTodo.controls['title'].setValue(this.editData.title);
       this.formTodo.controls['description'].setValue(this.editData.description);
       if (this.editData.status.completed) {
@@ -59,10 +61,33 @@ export class ModalComponent implements OnInit{
       next:(res: any) => console.log(res),
       error: error => console.log(error)
     });
-    this.dialogRef.close('close');
+    this.dialogRef.close('add');
     }
   }
-  update() :void{
-    console.log(this.formTodo.value)
+  update(task: ITasks) :void{
+    console.log(task.id, task)
+    const newTask: ITasks = {
+      id: task.id,
+      title: task.title,
+      description: task.description,
+      status: {
+        inProgress: this.formTodo.value.status == 'inprogres',
+        completed: this.formTodo.value.status == 'done'
+      },
+      selected:false,
+    };
+    this.mainServe.onEditTasks(newTask.id, newTask).subscribe({
+      next:(res: any) => console.log(res),
+      error: error => console.log(error)
+    });
+    window.location.reload();
+    this.dialogRef.close('edit');
+  }
+
+  delete(id:number) {
+    this.mainServe.onDelete(id).subscribe({
+      next:(res: any) => window.location.reload(),
+      error: error => console.log(error)
+    });
   }
 }

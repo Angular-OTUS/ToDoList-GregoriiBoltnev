@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {ITasks} from "../../../../settings/itasks";
 import {ModalComponent} from "../../../modal/components/modal/modal.component";
 import {MatDialog} from "@angular/material/dialog";
 
@@ -23,7 +22,8 @@ export class MainPageComponent {
     this.dialog.open(ModalComponent, {
       width: '40%',
     }).afterClosed().subscribe((v) => {
-      console.log(v);
+      console.log('afterClosed',v);
+      window.location.reload();
     })
   }
 }

@@ -24,7 +24,7 @@ export class BoardComponent implements OnInit{
       width: '40%',
       data: item
     }).afterClosed().subscribe(val => {
-      this.getTasks();
+
     })
   }
 
@@ -35,7 +35,6 @@ export class BoardComponent implements OnInit{
   getTasks() {
     this.mainServ.getAll().subscribe({
       next: (res) => {
-        console.log(res)
         res.forEach((item) => {
           if (item.status.completed) {
             this.done.push(item)

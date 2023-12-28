@@ -20,8 +20,11 @@
     </mat-radio-group>
   </form>
 </div>
-<div class="actions" mat-dialog-actions >
-  <button *ngIf="actionBtn == 'Edd' " class="btn" mat-raised-button color="primary" (click)="create()">{{actionBtn}}</button>
-  <button *ngIf="actionBtn == 'Edit' " class="btn" mat-raised-button color="primary" (click)="update()">{{actionBtn}}</button>
+<div  *ngIf="actionBtn == 'Edd' "  class="actions" mat-dialog-actions >
+  <button class="btn" mat-raised-button color="primary" (click)="create()">{{actionBtn}}</button>
   <button class="btn" mat-raised-button color="accent" mat-dialog-close="close">Close</button>
+</div>
+<div  *ngIf="actionBtn == 'Edit' "  class="actions" mat-dialog-actions >
+  <button class="btn" mat-raised-button color="primary" (click)="update(formTodo.value)">{{actionBtn}}</button>
+  <button class="btn" mat-raised-button color="accent" mat-dialog-close="close" (click)="delete(formTodo.value.id)">delete</button>
 </div>

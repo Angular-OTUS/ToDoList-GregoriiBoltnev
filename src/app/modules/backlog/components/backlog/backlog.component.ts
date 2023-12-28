@@ -19,7 +19,6 @@ export class BacklogComponent implements OnInit{
  }
 
   getTasks() {
-    console.log(this.mainServ.tasks)
     this.mainServ.getAll().subscribe({
       next: (res) => {
         this.tasks = res;
