@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {RouterModule} from "@angular/router";
 import { HttpClientModule } from '@angular/common/http';
+import {ModalModule} from "./modules/modal/modal.module";
+
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

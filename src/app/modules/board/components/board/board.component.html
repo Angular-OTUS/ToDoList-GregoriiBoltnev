@@ -1,17 +1,33 @@
 <div class="board">
   <div class="board__todo todo">
+    <h2>todo({{todo.length}})</h2>
     <ul class="todo__list" >
-      <li class="todo__item"></li>
+      <li
+        *ngFor="let itemTodo of todo"
+        class="todo__item task"
+        (click)="openDialog(itemTodo)"
+      >{{itemTodo.title}}</li>
     </ul>
   </div>
   <div class="board__progress progress">
+    <h2>inprogress({{progress.length}})</h2>
     <ul class="progress__list">
-      <li class="progress__item"></li>
+      <li
+        *ngFor="let itemProgress of progress"
+        class="progress__item task"
+        (click)="openDialog(itemProgress)"
+      >{{itemProgress.title}}</li>
     </ul>
   </div>
-  <div class="board__done">
+  <div class="board__done done">
+    <h2>done({{done.length}})</h2>
     <ul class="done__list">
-      <li class="done__item"></li>
+
+      <li *ngFor="let itemDone of done"
+          class="done__item task"
+          (click)="openDialog(itemDone)"
+      >{{itemDone.title}}</li>
     </ul>
   </div>
 </div>
+

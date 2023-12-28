@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import {RouterModule, Routes} from "@angular/router";
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -9,6 +10,7 @@ import {RouterModule, Routes} from "@angular/router";
   ],
   imports: [
     CommonModule,
+    MatButtonModule,
     RouterModule.forChild([
       {
         path: '', component: MainPageComponent, children:[

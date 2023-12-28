@@ -16,7 +16,6 @@ export class ViewBacklogComponent implements OnInit{
   constructor(
     private routerActive: ActivatedRoute,
     private mainServ: MainService,
-    private rout: Router
   ) {
   }
 
