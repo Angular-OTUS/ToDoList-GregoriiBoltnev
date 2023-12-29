@@ -1,0 +1,13 @@
+<div class="backlog">
+  <ul class="backlog-list">
+    <li *ngFor="let item of tasks; index as i"
+        class="backlog-item"
+        [routerLink]="['view', item.id]"
+    >
+      <p class="backlog-task">{{item.title}}</p>
+    </li>
+  </ul>
+  <div class="backlog-view">
+    <router-outlet></router-outlet>
+  </div>
+</div>

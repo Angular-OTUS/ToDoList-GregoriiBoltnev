@@ -1,38 +1,51 @@
 import { Injectable } from '@angular/core';
-import {ITasks} from "../interfaces/itasks";
+import {BehaviorSubject, map, Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {ITasks} from "../itasks";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainService {
-  public tasks: ITasks[];
+  public tasks :BehaviorSubject<ITasks[]> = new BehaviorSubject<ITasks[]>([]);
 
-  constructor() {
-    this.tasks = [
-      {
-        id: 1,
-        text: 'Купить молоко',
-        description: 'Только сегодняшнее',
-      },
-      {
-        id: 2,
-        text: 'Помыть полы',
-        description: 'Во всем доме'
-      }
-    ];
+  public url :string;
+  constructor(private http: HttpClient) {
+    this.url = 'http://localhost:3000/tasks';
   }
 
-  onEditTasks(task:ITasks):void {
-    this.tasks.map(item => {
-      if(item.id === task.id &&  item.description != task.description) item.description = task.description;
-    })
-  }
-  onDelete(id: number):ITasks[] {
-    this.tasks = this.tasks.filter(item => item.id != id);
-    return this.tasks;
+  setValue() {
+    this.getAll().subscribe((v) => this.tasks.next(v));
   }
 
-  addTask(task: ITasks):number {
-    return this.tasks.unshift(task);
+  getValue():Observable<ITasks[]> {
+    this.setValue();
+    return this.tasks.asObservable();
+  }
+
+  onEditTasks(id:number, task: ITasks):Observable<ITasks> {
+    return this.http.put<ITasks>(`${this.url}/${id}`, task)
+  }
+
+  onDelete(id: number): Observable<ITasks> {
+    return this.http.delete<ITasks>(`${this.url}/${id}`);
+  }
+
+  getAll():Observable<ITasks[]> {
+    return this.http.get<ITasks[]>(this.url);
+  }
+
+  addTask(task: ITasks): Observable<ITasks> {
+    return this.http.post<ITasks>(this.url, task);
+  }
+  getById(id:any):Observable<ITasks> {
+    return this.http.get<any>(`${this.url}/${id}`)
+      .pipe(
+        map ( res => {
+        return {
+          ...res,
+          id,
+        }
+      }));
   }
 }

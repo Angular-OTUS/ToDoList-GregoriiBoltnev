@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&family=Young+Serif&display=swap');
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 
 /* Reset and base styles  */
 
 :root {
-  --main-bg-todo: #fff;
-  --main-bg-description: #dfdfdf;
-  --title-color: #000;
-  --bg-task-color:  #dfdfdf;
-  --bg-add-button:  #be98e4;
-  --color-add-button:  #fff;
+  --main-bg: rgb(14, 14, 14);
+  --main-bg-todo: rgb(25 25 35);
+  --panel-bg: rgb(33 33 43);
+  --border-line: rgb(99 97 97);
+  --text-color: #fff;
+  --active-menu-item: rgb(80 71 187);
+  --dashboard-bg-todo: rgb(25 25 35);;
 }
 
 * {
@@ -26,10 +26,7 @@
 }
 
 body {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background: var(--main-bg);
   font-family: 'Young Serif', serif;
 }
 
