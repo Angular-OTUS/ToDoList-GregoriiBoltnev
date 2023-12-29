@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import {RouterModule, Routes} from "@angular/router";
 import {MatButtonModule} from '@angular/material/button';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
-    MainPageComponent
+    MainPageComponent,
+    ToastComponent
   ],
   imports: [
     CommonModule,
