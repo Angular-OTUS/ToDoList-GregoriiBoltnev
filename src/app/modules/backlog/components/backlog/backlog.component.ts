@@ -19,9 +19,10 @@ export class BacklogComponent implements OnInit{
  }
 
   getTasks() {
-    this.mainServ.getAll().subscribe({
+    this.mainServ.getValue().subscribe({
       next: (res) => {
-        this.tasks = res;
+        console.log(res)
+        if (res) this.tasks = res;
       },
       error:(er) => {
         alert("что-то не так с сервером! Возмжно вы не запустили сервер командой json-server --watch db.json");

@@ -3,16 +3,16 @@
     <h1 class="tasks-board__menu-title">TasksBoard</h1>
     <ul class="tasks-board__menu-list">
       <li class="tasks-board__menu-item"
-          [routerLink]="'backlog'"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}"
+          [routerLink]="'backlog'"
           (click)="onChangeFlag('Backlog')"
       >
         Backlog
       </li>
       <li class="tasks-board__menu-item"
-          [routerLink]="'board'"
           routerLinkActive="active"
+          [routerLink]="'board'"
           (click)="onChangeFlag('Board')"
       >
         Board

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {map, Observable} from "rxjs";
+import {BehaviorSubject, map, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {ITasks} from "../itasks";
 
@@ -7,11 +7,20 @@ import {ITasks} from "../itasks";
   providedIn: 'root'
 })
 export class MainService {
-  public tasks :ITasks[] = [];
+  public tasks :BehaviorSubject<ITasks[]> = new BehaviorSubject<ITasks[]>([]);
+
   public url :string;
   constructor(private http: HttpClient) {
     this.url = 'http://localhost:3000/tasks';
-    this.getAll().subscribe((v) => this.tasks = v);
+  }
+
+  setValue() {
+    this.getAll().subscribe((v) => this.tasks.next(v));
+  }
+
+  getValue():Observable<ITasks[]> {
+    this.setValue();
+    return this.tasks.asObservable();
   }
 
   onEditTasks(id:number, task: ITasks):Observable<ITasks> {

@@ -65,7 +65,6 @@ export class ModalComponent implements OnInit{
     }
   }
   update(task: ITasks) :void{
-    console.log(task.id, task)
     const newTask: ITasks = {
       id: task.id,
       title: task.title,
@@ -77,16 +76,15 @@ export class ModalComponent implements OnInit{
       selected:false,
     };
     this.mainServe.onEditTasks(newTask.id, newTask).subscribe({
-      next:(res: any) => console.log(res),
+      next:(res: any) => this.mainServe.getValue(),
       error: error => console.log(error)
     });
-    window.location.reload();
     this.dialogRef.close('edit');
   }
 
   delete(id:number) {
     this.mainServe.onDelete(id).subscribe({
-      next:(res: any) => window.location.reload(),
+      next:(res: any) => this.mainServe.getValue(),
       error: error => console.log(error)
     });
   }
