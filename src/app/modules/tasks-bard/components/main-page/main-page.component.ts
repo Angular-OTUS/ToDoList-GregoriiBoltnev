@@ -11,6 +11,10 @@ import {ToastService} from "../../../../settings/services/toast.service";
 })
 export class MainPageComponent {
   public flag:string;
+  public localesList = [
+    { code: 'en-US', label: 'English' },
+    { code: 'ru', label: 'Русский' }
+  ];
 
   constructor(
     public dialog: MatDialog,

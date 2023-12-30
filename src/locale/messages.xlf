@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="2493348432151637881" datatype="html">
+        <source>todo(<x id="INTERPOLATION" equiv-text="{{todo.length}}"/>)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/board/board.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3178555737839965408" datatype="html">
+        <source>inprogress(<x id="INTERPOLATION" equiv-text="{{progress.length}}"/>)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/board/board.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2010631492444452513" datatype="html">
+        <source>done(<x id="INTERPOLATION" equiv-text="{{done.length}}"/>)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/board/components/board/board.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1398296832117533804" datatype="html">
+        <source>TasksBoard</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/tasks-bard/components/main-page/main-page.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2409078062655081027" datatype="html">
+        <source> Backlog </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/tasks-bard/components/main-page/main-page.component.html</context>
+          <context context-type="linenumber">11,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8641363216926748800" datatype="html">
+        <source> Board </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/tasks-bard/components/main-page/main-page.component.html</context>
+          <context context-type="linenumber">19,21</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

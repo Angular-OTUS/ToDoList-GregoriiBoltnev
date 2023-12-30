@@ -1,6 +1,6 @@
 <div class="board">
   <div class="board__todo todo">
-    <h2>todo({{todo.length}})</h2>
+    <h2 i18n>todo({{todo.length}})</h2>
     <ul class="todo__list" >
       <li
         *ngFor="let itemTodo of todo"
@@ -10,7 +10,7 @@
     </ul>
   </div>
   <div class="board__progress progress">
-    <h2>inprogress({{progress.length}})</h2>
+    <h2 i18n>inprogress({{progress.length}})</h2>
     <ul class="progress__list">
       <li
         *ngFor="let itemProgress of progress"
@@ -20,7 +20,7 @@
     </ul>
   </div>
   <div class="board__done done">
-    <h2>done({{done.length}})</h2>
+    <h2 i18n>done({{done.length}})</h2>
     <ul class="done__list">
 
       <li *ngFor="let itemDone of done"
