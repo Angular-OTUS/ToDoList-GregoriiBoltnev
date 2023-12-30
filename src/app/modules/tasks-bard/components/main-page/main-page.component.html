@@ -1,0 +1,46 @@
+<div class="tasks-board">
+  <div class="tasks-board__menu">
+    <h1 class="tasks-board__menu-title" i18n>TasksBoard</h1>
+    <ul class="tasks-board__menu-list">
+      <li class="tasks-board__menu-item"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}"
+          [routerLink]="'backlog'"
+          (click)="onChangeFlag('Backlog')"
+          i18n
+      >
+        Backlog
+      </li>
+      <li class="tasks-board__menu-item"
+          routerLinkActive="active"
+          [routerLink]="'board'"
+          (click)="onChangeFlag('Board')"
+          i18n
+      >
+        Board
+      </li>
+    </ul>
+  </div>
+  <div class="tasks-board__wrapper">
+    <div class="tasks-board__header">
+<!-- <h2 class="tasks-board__menu-subtitle" >{{flag}}</h2>-->
+      <ul>
+        <li *ngFor="let locale of localesList">
+          <a href="/{{locale.code}}/">
+            {{locale.label}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="tasks-board__body">
+      <router-outlet></router-outlet>
+
+      <button mat-raised-button
+              color="warn"
+              (click)="openDialog()"
+      >+</button>
+    </div>
+  </div>
+</div>
+
+<app-toast *ngIf="toastServ.isVisibleToast$ | async"></app-toast>

@@ -9,7 +9,7 @@ export class ToastService {
   public text$!: BehaviorSubject<string>;
 
   constructor() {
-    this.isVisibleToast$ = new BehaviorSubject<boolean>(true);
+    this.isVisibleToast$ = new BehaviorSubject<boolean>(false);
     this.text$ = new BehaviorSubject<string>('');
   }
 
@@ -27,6 +27,7 @@ export class ToastService {
     this.text$.next(tex);
     setTimeout(()=> {
       this.text$.next('');
+      this.close();
     }, 2000)
   }
 }
